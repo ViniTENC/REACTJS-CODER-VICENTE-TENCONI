@@ -1,4 +1,4 @@
-function NavBar(){
+function Navbar(){
     return <header>
         <h1>MAFAVI FC</h1>
         <nav>
@@ -8,4 +8,4 @@ function NavBar(){
         </nav>
     </header>
 }
-export default NavBar
+export default Navbar
