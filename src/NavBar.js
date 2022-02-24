@@ -1,11 +1,11 @@
-function Navbar(){
-    return <header>
-        <h1>MAFAVI FC</h1>
+const NavBar = () => {
+    return (
         <nav>
             <a href="#">Prendas</a>
             <a href="#">Accesorios</a>
             <a href="#">Contacto</a>
         </nav>
-    </header>
+    )
 }
-export default Navbar
+
+export default NavBar
