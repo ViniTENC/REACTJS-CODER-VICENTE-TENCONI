@@ -1,6 +1,6 @@
 import Header from "./Header"
 import Footer from "./Footer"
-import Main from "./Main"
+import Main from "./components/Main"
 function App () {
     return (
     <>

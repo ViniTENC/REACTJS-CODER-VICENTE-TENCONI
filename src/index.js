@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom';
 //3) Tener un componente de React
 import App from "./App.js"
 import "./estilos.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //4) Renderizar App en el DOM
 ReactDOM.render(<App/>,document.getElementById('root'))
