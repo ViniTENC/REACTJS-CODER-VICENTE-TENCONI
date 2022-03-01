@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Slab', serif; }
+
+html,
+body,
+#root {
+  height: 100vh; }
+
+#root {
+  display: flex;
+  flex-direction: column; }
+
+footer, header {
+  background-color: rgba(48, 48, 252, 0.493);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url(https://cdn-icons-png.flaticon.com/512/1170/1170678.png); }
+
+main {
+  flex-grow: 1; }
+
+nav {
+  background-color: rgba(48, 48, 252, 0.493); }
+
+.carritoCompras {
+  display: flex;
+  justify-content: center;
+  height: 3rem; }
+
+.navbar-non {
+  flex-grow: 0; }
+
+a {
+  font-size: 1.2rem; }

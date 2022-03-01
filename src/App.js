@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Header"
+import Footer from "./Footer"
+import Main from "./Main"
+//import container from react-bootstrap
+import { Container } from 'react-bootstrap'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const edad= 17
+    const usuarios = ["Tomas", "Facundo", "Juan"]
+    return (
+        <>
+            <Header/>
+            <Main
+                nombre="Vicente"
+                apellido="Tenconi"
+                edad={edad}
+                usuarios={usuarios}
+            />
+            <Footer/>
+        </>
+    )
 }
 
-export default App;
+export default App
