@@ -40,3 +40,30 @@ a {
 
 p {
   font-size: 1.2rem; }
+
+.mainContainer {
+  display: flex;
+  flex-direction: row; }
+
+.camisetaT {
+  width: fit-content; }
+
+.imgR {
+  max-width: 100%;
+  height: auto; }
+
+.prods {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: .4rem; }
+
+.Cantidades {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%; }
+
+h3 {
+  text-align: center; }

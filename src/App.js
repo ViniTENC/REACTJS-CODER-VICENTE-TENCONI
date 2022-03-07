@@ -1,21 +1,13 @@
-import Header from "./Header"
-import Footer from "./Footer"
-import Main from "./Main"
+import Header from "./Componentes/Header"
+import Footer from "./Componentes/Footer"
+import Main from "./Componentes/Main"
 function App() {
-    const edad= 17
-    const productoIndumentaria = ["Camiseta titular"]
-    const productoAccesorio = ["Vasavi"]
-    const productoNFT = ["TuEscudavi"]
     return (
         <>
             <Header/>
             <Main
-                nombre="Vicente"
-                apellido="Tenconi"
-                edad={edad}
-                productoIndumentaria={productoIndumentaria}
-                productoAccesorio={productoAccesorio}
-                productoNFT={productoNFT}
+                stock = {5}
+                initial = {2}
             />
             <Footer/>
         </>
