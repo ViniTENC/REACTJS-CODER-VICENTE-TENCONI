@@ -43,21 +43,24 @@ p {
 
 .mainContainer {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  align-items: baseline; }
 
 .camisetaT {
   width: fit-content; }
 
 .imgR {
   max-width: 100%;
-  height: auto; }
+  height: auto;
+  flex-wrap: wrap; }
 
 .prods {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: .4rem; }
+  margin: .4rem;
+  width: fit-content; }
 
 .Cantidades {
   display: flex;
@@ -67,3 +70,10 @@ p {
 
 h3 {
   text-align: center; }
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1.5rem 0rem;
+  align-items: center; }
