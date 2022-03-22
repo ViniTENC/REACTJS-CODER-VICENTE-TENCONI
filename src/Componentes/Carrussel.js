@@ -27,7 +27,7 @@ const Carrussel = () => {
             return <Loader/>
         }else{
         return (
-        <>
+        <div id='containerPrincipal'>
         <h2 style={{"text-align": "center", "font-size" : "3rem"}}>Tienda oficial del MaFaVi</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et turpis id lectus facilisis laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultricies feugiat blandit. Fusce sed nunc leo. Sed vel nibh pulvinar, egestas dolor at, egestas felis. Aliquam molestie, lacus nec tempor euismod, mauris tellus suscipit purus, quis gravida libero lectus eget nisl. Vestibulum at sem aliquet, tincidunt orci scelerisque, blandit elit. Quisque sed velit quis eros aliquam sodales vehicula eget magna.</p>
         <h4 style={{"text-align": "center"}}>Conocenos a traves de nuestros productos, por eso, te mostramos los más requeridos de cada categoría!</h4>
@@ -71,6 +71,6 @@ const Carrussel = () => {
                 </Carousel.Item>
             </Carousel>
     </Container>
-    </>)
+    </div>)
 }}
 export default Carrussel
