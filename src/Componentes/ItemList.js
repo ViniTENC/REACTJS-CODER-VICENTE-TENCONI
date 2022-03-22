@@ -1,11 +1,12 @@
 import React from 'react'
 import Item from './Item'
-const ItemList = (props) => {
+const ItemList = ({productos}) => {
     return (
         <div className="container mainContainer">
-            {props.productos.map((producto,indice)=>{
+            {productos.map((producto)=>{
+                console.log(producto)
                 return (
-                <Item productoP= {producto.precio} productoN={producto.nombre} productoI={producto.imagen}
+                <Item producto= {producto} key={producto.id}
                 />
                 )
             })}

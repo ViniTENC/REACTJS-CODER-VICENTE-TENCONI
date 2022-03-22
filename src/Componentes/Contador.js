@@ -1,17 +1,28 @@
 import {useState} from 'react'
-const Contador = ( ) =>{
-    let [dark, setDark] = useState(false)
-    console.log(dark)
-    const toggleDarkMode = () =>{
-        setDark(!dark)
+const Contador = ({stock, initial, onAdd} ) =>{
+    const [contador,setContador] =useState(initial)
+    const handleAumentar= () =>{
+        if (contador<stock) {
+            setContador(contador + 1)
+        }
     }
+    const handleDisminuir= () =>{
+        if (contador > initial) {
+            setContador(contador - 1)
+        }
+    }
+    const handleConfirmar= (e) =>{
+        console.log(e)
+        onAdd(contador)
+    }
+
     return(
         <div>
             <h1>Contador</h1>
-            <p>El tema del sitio es : {dark.toString()}  </p>
-            <p>Mi contador Actual va : 0</p>
-            <p>La cantidad de productos es : 0</p>
-            <button onClick={toggleDarkMode}>pute</button>
+            <p>Mi contador Actual va : {contador}</p>
+            <button onClick={handleAumentar}>+</button>
+            <button onClick={handleDisminuir}>-</button>
+            <button onClick={handleConfirmar}>confrimar</button>
         </div>
     )
 }

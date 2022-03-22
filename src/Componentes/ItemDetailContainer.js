@@ -1,42 +1,51 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import ItemDetail from './ItemDetail'
-const infoProductos = ()=>[ {
-  marca: "Solo Gol",
-  material: "Dry-Fit",
-  color: "Azul y negro",
-  tipoCamiseta: "Titular",
-  numero: "Sin asignar",
-}]
+import { useParams } from "react-router-dom"
+import { toast } from "react-toastify"
+import Loader from "./Loader"
+import inventario from '../json/inventario'
 const ItemDetailContainer = (props) => {
   const [loading, setLoading]= useState(true)
-  const[informacion, setInfo] = useState([])
+  const[informacion, setInfo] = useState({})
+  const { id } = useParams()
+  const idNuevo = parseInt(id)
+  console.dir(idNuevo)
+  var show = (inventario.indumentaria)
+  if ((idNuevo === 4)|| (idNuevo === 5) || (idNuevo ===6)){
+    var show = (inventario.accesorios)
+  } 
+  if(idNuevo === 7){
+    var show = (inventario.nfts)
+  }
     useEffect(()=>{
-        const promesa = new Promise((res,rej)=>{
+    const pedido = new Promise((res,rej)=>{
             setTimeout(()=>{
-            res(infoProductos)
-            },2000)
-        })
-    promesa
-    .then(()=>{
-        setInfo(infoProductos)
+            res(inventario)
+            },3000)
     })
-    .catch((errorDeLaApi)=>{
-        console.log(errorDeLaApi)
-        //setError("Hubo un error al cargar los datos, vuelva a intentarlo")
+    pedido
+    .then((respuesta) => {
+        setInfo(show)
     })
-    .finally(()=>{
-        setLoading(false)
+      .catch((errorDeLaApi)=>{
+        toast.error("Hubo un error!")
+          //setError("Hubo un error al cargar los datos, vuelva a intentarlo")
+      })
+      .finally(()=>{
+          setLoading(false)
+      })
     })
-    })
-    console.log(informacion)
-  return (
-    <>
-    <h4>Camiseta Titular</h4>
-    <p>{loading ? "Cargando..." : ""}</p>
-    <ItemDetail informacion = {informacion}/>
-    </>
-  )
+    if(loading){
+      return <Loader/>
+    }else{
+      return (
+      <>
+      <p>{loading ? "Cargando..." : ""}</p>
+      <ItemDetail informacion = {informacion} id= {idNuevo}/>
+      </>
+      )
+  }
 }
 
 export default ItemDetailContainer

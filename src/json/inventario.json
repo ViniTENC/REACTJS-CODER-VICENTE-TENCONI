@@ -1,0 +1,78 @@
+{
+    "indumentaria": [
+        {
+            "id": 1,
+            "nombre": "Camiseta Titular",
+            "precio" : 100,
+            "image": "/imagenesDelProyecto/camisetaS.jpg",
+            "marca" : "Solo Gol",
+            "material": "Dry-Fit",
+            "color": "Azul y negro",
+            "tipoCamiseta": "Titular",
+            "numero": "Sin asignar",
+            "genero" : "Unisex"
+        },
+        {
+            "id": 2,
+            "nombre": "Camiseta Suplente",
+            "precio" : 100,
+            "image": "/imagenesDelProyecto/camisetaT.jpg",
+            "marca" : "La Casaca",
+            "material": "Dry-Fit",
+            "color": "Blanco , Azul y negro",
+            "tipoCamiseta": "Suplente",
+            "numero": "Sin asignar",
+            "genero" : "Unisex"
+        },
+        {
+            "id": 3,
+            "nombre": "Campera Rompevientos",
+            "precio" : 50,
+            "image": "/imagenesDelProyecto/Conjunto.jpg",
+            "marca" : "LNS Sport",
+            "material": "Poliester",
+            "color": "Azul y negro",
+            "funcionalidad": "Aislación del viento",
+            "impermeabilidad" : "No es impermeable",
+            "genero" : "Unisex"
+        }
+    ],
+    "accesorios" : [
+        {
+            "id": 4,
+            "nombre": "Vasavi",
+            "precio": 25,
+            "image" : "",
+            "material": "Acero inoxidable",
+            "color" : "Plateado",
+            "capacidad" : "250ml "
+        },
+        {
+            "id": 5,
+            "nombre": "Pilusavi",
+            "precio": 30,
+            "image" : "",
+            "material": "Poliester",
+            "color" : "Negro o Azul",
+            "talle" : "Unico talle",
+            "genero" : "Unisex"
+        },
+        {
+            "id": 6,
+            "nombre": "Gorravi",
+            "precio": 30,
+            "image" : "",
+            "material": "Poliester",
+            "color" : "Azul y blanco",
+            "talle" : "Unico talle",
+            "tipo": "Trucker",
+            "genero" : "Unisex"
+        }
+    ],
+    "nfts" : [
+        {
+            "id": 7,
+            "nombre" : "Proximamente..."
+        }
+    ]
+}

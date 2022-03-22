@@ -1,8 +1,12 @@
+import Carrito from "./Carrito"
 
+const carrito={
+    link: "./imagenesDelProyecto/carrito.png",
+  }
 function CartWidget(){
     return(
         <div class="carritoCompras">
-            <img src="carrito.png" alt=""></img>
+            <img src={carrito.link} alt=""></img>
         </div>
     )
 }

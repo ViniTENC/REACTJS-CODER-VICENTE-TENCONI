@@ -49,9 +49,10 @@ p{
     font-size: 1.2rem;
 }
 .mainContainer{
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    margin-top: 1rem;
 }
 .camisetaT{
     width: fit-content;
@@ -84,4 +85,173 @@ h3{
     justify-content: center;
     margin: 1.5rem 0rem;
     align-items: center;
+}
+.carrussel{
+    margin: 2rem;
+}
+.loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Hover:hover {
+    transition: 0.3s;
+    border-bottom: 1px solid rgb(0, 0, 0); }
+.imgC{
+    height: 38rem;
+
+}
+.textCar{
+    h3, p{
+    background-color: rgba(255, 255, 255, 0.74);
+    color:rgb(32, 32, 32);
+}
+}
+.nft{
+    display: flex;
+    justify-content: center;
+}
+.track{
+    margin: 10px;
+    overflow: hidden;
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    .track__img{
+        height: auto;
+        -webkit-transition: all .4s;
+        transition: all .4s;
+        max-width: 100%;
+        display: block;
+    }
+    .track__texto{
+        position: absolute;
+        background-color: #2d2e99;
+        display: block;
+        padding: 0rem 10rem;
+        box-sizing: border-box;
+        top: auto;
+        bottom: 0;
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: opacity .1s .3s,-webkit-transform .4s;
+        transition: opacity .1s .3s,-webkit-transform .4s;
+        transition: transform .4s,opacity .1s .3s;
+        transition: transform .4s,opacity .1s .3s,-webkit-transform .4s;
+        text-align: center;
+        h3{
+            color: white;
+        }
+        p{
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        span{
+            color: #95d703;
+        }
+        .link__icon{
+            pointer-events: all;
+                color: #00A3D9;
+                text-align: center;
+                white-space: nowrap;
+                cursor: pointer;
+                user-select: none;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                vertical-align: baseline;
+                display: inline-block;
+                font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                font-size: 26px;
+                transform: translate3d(0,4px,0);
+                transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+        }
+        }
+}
+.track:hover .track__img {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+}
+.track:hover .track__texto{
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+article {
+    background-color: #FFF;
+    padding: 1rem;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.1);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    h2 {
+        margin-top: 1rem;
+    }
+
+    p {
+        margin-top: 1rem;
+    }
+
+    button {
+        margin-top: 1rem;
+        background-color: white;
+        color: #2d2e99;
+        border: none;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        a {
+            color: #2d2e99;
+            text-decoration: none;
+            padding-bottom: .2rem;
+        }
+
+        &:hover {
+            background-color: 	#4169E1;
+            color: white;
+            
+        }   
+    }
+}
+.containerProducto{
+    display: flex;
+    flex-direction: column;
+    h3{
+        text-align: center;
+        padding: .6rem;
+    }
+    h4{
+        text-align: center;
+        padding: .6rem;
+    }
+    p{
+        text-align: center;
+    }
+}
+.contador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

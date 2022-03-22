@@ -1,48 +1,43 @@
 import React from 'react'
 import  Button  from 'react-bootstrap/Button'
 import { useState } from "react"
-import onAdd from '../App'
-const ItemCount = (props) => {
-    console.log(props)
-    const [contador, setContador] = useState(props.initial)
-    const sumar=()=>{
-        if (contador< props.stock) {
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [contador, setContador] = useState(initial)
+    const handleAumentar= () =>{
+        if (contador<stock) {
             setContador(contador + 1)
         }
     }
-    const restar = () =>{
-        if (contador> props.initial) {
+    const handleDisminuir= () =>{
+        if (contador > initial) {
             setContador(contador - 1)
         }
     }
-    const onAdd = () => {
-        console.log("Se sumaron al carrito "+ contador + " productos")
-        setContador("Agregado!")
+    const handleConfirmar= (e) =>{
+        console.log(e)
+        onAdd(contador)
     }
-    console.log(props.stock)
-    console.log(props.initial)
-    console.log(contador)
     return (
-    <>
+    <div className='contador'>
     <div className="Cantidades">
         <div className="mb-2">
-            <Button variant="primary" size="lg" onClick={sumar}>
+            <Button variant="primary" size="lg" onClick={handleAumentar}>
                     +
             </Button>
         </div>
         <p>{contador}</p>
         <div className="mb-2">
-            <Button variant="primary" size="lg" onClick={restar}>
+            <Button variant="primary" size="lg" onClick={handleDisminuir}>
                 -
             </Button>
         </div>
     </div>
     <div className="mb-2">
-    <Button variant="primary" size="lg" onClick={onAdd}>
+    <Button variant="primary" size="lg" onClick={handleConfirmar}>
         Confirmar
     </Button>
     </div>
-    </>
+    </div>
 )
 }
 

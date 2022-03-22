@@ -1,54 +1,51 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import ItemList from './ItemList'
-const productosIniciales = ()=> [
-    {
-        id: 1,
-        nombre: "Camiseta Titular",
-        precio : 100,
-    },
-    {
-        id: 2,
-        nombre: "Camiseta Suplente",
-        precio : 100,
-    },
-    {
-        id: 3,
-        nombre: "Rompevientos",
-        precio : 50,
-    }
-]
+import { toast } from "react-toastify"
+import { useParams } from 'react-router-dom'
+import Loader from './Loader'
+import inventario from '../json/inventario'
 const ItemListContainer = (props) => {
     const [loading, setLoading]= useState(true)
     const[productos, setProductos] = useState([])
+    const {id} = useParams()
+    var show = (inventario.indumentaria)
+    if (id === "Accesorios"){
+        var show = (inventario.accesorios)
+    } 
+    if(id === "Nfts"){
+        var show = (inventario.nfts)
+    }
     useEffect(()=>{
-        const promesa = new Promise((res,rej)=>{
+    const pedido = new Promise((res,rej)=>{
             setTimeout(()=>{
-            res(productosIniciales)
-            },2000)
-        })
-    promesa
-    .then(()=>{
-        setProductos(productosIniciales)
+            res(inventario)
+            },3000)
     })
-    .catch((errorDeLaApi)=>{
-        console.log(errorDeLaApi)
-        //setError("Hubo un error al cargar los datos, vuelva a intentarlo")
+    pedido
+    .then((respuesta) => {
+        setProductos(show)
+    })
+    .catch((error) => {
+        toast.error("Error al cargar los productos")
     })
     .finally(()=>{
         setLoading(false)
     })
-    })
+    }, [id])
     console.log(productos)
-return (
+    if(loading){
+        return <Loader/>
+    }else{
+    return (
     <>
-    <h2>Indumentaria</h2>
+    <h2 style={{"text-align": "center", "font-size" : "3rem"}}>{id}</h2>
     <p>{loading ? "Cargando..." : ""}</p>
     <ItemList
         productos= {productos}
     />
     </>
 )
-}
+}}
 
 export default ItemListContainer
