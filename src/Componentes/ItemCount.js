@@ -1,6 +1,6 @@
 import React from 'react'
 import  Button  from 'react-bootstrap/Button'
-import { useState } from "react"
+import { useState} from "react"
 const ItemCount = ({stock, initial, onAdd}) => {
     const [contador, setContador] = useState(initial)
     const handleAumentar= () =>{

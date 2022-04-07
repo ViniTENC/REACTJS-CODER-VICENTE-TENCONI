@@ -1,16 +1,24 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import ItemCount from './ItemCount'
-const ItemDetail = ({informacion, id}) => {
+import {contexto} from './CartContext'
+import { Link } from 'react-router-dom'
+const ItemDetail = ({informacion, id, }) => {
+  //const [agregarAlCarrito, carrito ] = useContext(MiProvider)
   const [seleccionado, setSeleccionado] = useState(false)
+  const {agregarProducto} = useContext(contexto)
   const onAdd = (unidadSeleccionada) => {
-    console.log("On Add desde el ItemDetailContainer")
-    console.log(unidadSeleccionada)
     if(unidadSeleccionada !== undefined){
       setSeleccionado(unidadSeleccionada)
     }}
-    var difficult_tasks = informacion.filter((task) => task.id === id);
-    console.log(seleccionado)
+    var difficult_tasks  = informacion.filter((task) => task.id === id);
+    const handleClick = () =>{
+      console.log("Click")
+      difficult_tasks.map((info)=>
+      agregarProducto(info, seleccionado)
+      )
+      
+    }
     if (seleccionado === false ) {
       return (
         <div className="container containerProducto">
@@ -52,6 +60,7 @@ const ItemDetail = ({informacion, id}) => {
                     )
                 })}
         <p>Se sumaron los productos al carrito!</p>
+        <Link onClick={handleClick} to="/carrito">carrito</Link>
         </div>
         </>
       )

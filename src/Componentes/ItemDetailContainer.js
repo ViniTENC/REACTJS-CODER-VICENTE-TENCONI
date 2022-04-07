@@ -10,9 +10,8 @@ const ItemDetailContainer = (props) => {
   const[informacion, setInfo] = useState({})
   const { id } = useParams()
   const idNuevo = parseInt(id)
-  console.dir(idNuevo)
   var show = (inventario.indumentaria)
-  if ((idNuevo === 4)|| (idNuevo === 5) || (idNuevo ===6)){
+  if (idNuevo === 4 || idNuevo === 5 || idNuevo === 6){
     var show = (inventario.accesorios)
   } 
   if(idNuevo === 7){
@@ -20,21 +19,20 @@ const ItemDetailContainer = (props) => {
   }
     useEffect(()=>{
     const pedido = new Promise((res,rej)=>{
-            setTimeout(()=>{
-            res(inventario)
-            },3000)
-    })
-    pedido
-    .then((respuesta) => {
-        setInfo(show)
-    })
-      .catch((errorDeLaApi)=>{
+      setTimeout(()=>{
+        res(inventario)
+        pedido
+        .then((respuesta) => {
+          setInfo(show)
+        })
+        .catch((errorDeLaApi)=>{
         toast.error("Hubo un error!")
-          //setError("Hubo un error al cargar los datos, vuelva a intentarlo")
-      })
-      .finally(()=>{
-          setLoading(false)
-      })
+        })
+        .finally(()=>{
+            setLoading(false)
+        })
+      },3000)
+    },[id])
     })
     if(loading){
       return <Loader/>
@@ -45,7 +43,7 @@ const ItemDetailContainer = (props) => {
       <ItemDetail informacion = {informacion} id= {idNuevo}/>
       </>
       )
-  }
+    }
 }
 
 export default ItemDetailContainer

@@ -13,6 +13,7 @@ return (
                     <Nav.Link as={NavLink} to="/categoria/Nfts" className="Hover">NFTs</Nav.Link>
                     <NavDropdown.Divider />
                     <Nav.Link as={NavLink} to="/iniciarsesion" className="Hover">Iniciar sesión</Nav.Link>
+                    <Nav.Link as={NavLink} to="/carrito" className="Hover">Carrito</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Container>

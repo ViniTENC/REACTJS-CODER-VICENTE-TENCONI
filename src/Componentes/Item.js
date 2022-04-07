@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { createContext, useContext } from 'react'
 import ItemCount from './ItemCount.js'
 import {Link} from "react-router-dom"
+import MiProvider from './CartContext.js'
 const Item = ({producto}) => {
   return (
     <>    
