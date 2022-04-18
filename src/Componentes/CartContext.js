@@ -29,13 +29,18 @@ const MiProvider = ({children}) =>{
     }
     const isInCart = (info) =>{
         return carrito && carrito.some(producto => producto.id === info.id)
-
+    }
+    const checkout = () =>{
+        setCarrito([])
+        setTotal(0)
+        setCantidadActual(0)
     }
     const valorDelProvider = {
         carrito,
         agregarProducto,
         borrarProducto,
-        total
+        total,
+        checkout
     }
     return(
         <Provider value={valorDelProvider}>

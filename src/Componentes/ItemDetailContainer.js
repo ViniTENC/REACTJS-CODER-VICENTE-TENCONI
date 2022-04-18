@@ -15,7 +15,6 @@ const ItemDetailContainer = (props) => {
   useEffect(()=>{
     if (id) {
         const a = query(collection(db, "Productos"),where("id", "==", idNuevo))
-        
         getDocs(a)
         .then(resp=>{
             setProducto(resp.docs.map(p=>p.data()))

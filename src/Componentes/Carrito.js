@@ -6,14 +6,17 @@ import {db} from "../Firebase"
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
 import Button from '@mui/material/Button';
+import { Report } from 'notiflix/build/notiflix-report-aio';
+import { Link, useNavigate } from 'react-router-dom'
 const Carrito = () => {
-  const {carrito, borrarProducto, total} = useContext(contexto)
+  const {carrito, borrarProducto, total, checkout} = useContext(contexto)
+  const navigate = useNavigate()
   const handleClick = () => {
     const orden = {
       buyer : {
-        nombre: "",
-        telefono: "",
-        email: ""
+        nombre: "Vicente",
+        telefono: "1145768112",
+        email: "tenconivini@gmail.com"
       },
       items: carrito,
       date: serverTimestamp(),
@@ -21,7 +24,20 @@ const Carrito = () => {
     }
     const ordenesMafaveras = collection(db, "ordenes")
     const pedido = addDoc(ordenesMafaveras, orden)
-  }
+    pedido
+    .then(res=>{
+        console.log(res.id)
+    })
+    Report.success (
+        'Compra realizada',
+        orden.buyer.nombre + ', ya te guardamos los productos, solo falta que abones tu pedido. Toda la información de pago fue enviada a tu correo: '+ orden.buyer.email + ', y a tu número de teléfono: ' + orden.buyer.telefono+'.',
+        'Seguir comprando',
+        () => {
+            navigate('/')
+        }
+    )
+    checkout()
+  } 
   console.log(carrito)
   return (
     <>
