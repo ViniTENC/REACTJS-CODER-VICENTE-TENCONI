@@ -1,7 +1,7 @@
 import React from 'react'
 import  Button  from 'react-bootstrap/Button'
 import { useState} from "react"
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock, initial, onAdd, handleClick}) => {
     const [contador, setContador] = useState(initial)
     const handleAumentar= () =>{
         if (contador<stock) {
@@ -14,7 +14,6 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
     const handleConfirmar= (e) =>{
-        console.log(e)
         onAdd(contador)
     }
     return (

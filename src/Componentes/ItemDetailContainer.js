@@ -4,43 +4,38 @@ import ItemDetail from './ItemDetail'
 import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import Loader from "./Loader"
-import inventario from '../json/inventario'
+import { getDocs, collection, query, where } from 'firebase/firestore'
+import {db} from "../Firebase"
+
 const ItemDetailContainer = (props) => {
   const [loading, setLoading]= useState(true)
-  const[informacion, setInfo] = useState({})
   const { id } = useParams()
   const idNuevo = parseInt(id)
-  var show = (inventario.indumentaria)
-  if (idNuevo === 4 || idNuevo === 5 || idNuevo === 6){
-    var show = (inventario.accesorios)
-  } 
-  if(idNuevo === 7){
-    var show = (inventario.nfts)
-  }
-    useEffect(()=>{
-    const pedido = new Promise((res,rej)=>{
-      setTimeout(()=>{
-        res(inventario)
-        pedido
-        .then((respuesta) => {
-          setInfo(show)
+  const[producto, setProducto] = useState([])
+  useEffect(()=>{
+    if (id) {
+        const a = query(collection(db, "Productos"),where("id", "==", idNuevo))
+        
+        getDocs(a)
+        .then(resp=>{
+            setProducto(resp.docs.map(p=>p.data()))
         })
-        .catch((errorDeLaApi)=>{
-        toast.error("Hubo un error!")
+        .catch(err=>{
+            toast.error("Error al cargar los productos")
         })
         .finally(()=>{
             setLoading(false)
         })
-      },3000)
-    },[id])
-    })
+        console.log(producto)
+    }
+}, [id])
     if(loading){
       return <Loader/>
     }else{
       return (
       <>
       <p>{loading ? "Cargando..." : ""}</p>
-      <ItemDetail informacion = {informacion} id= {idNuevo}/>
+      <ItemDetail informacion={producto} id= {idNuevo}/>
       </>
       )
     }

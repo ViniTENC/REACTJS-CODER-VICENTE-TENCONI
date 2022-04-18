@@ -5,7 +5,7 @@ const carrito={
   }
 function CartWidget(){
     return(
-        <div class="carritoCompras">
+        <div className="carritoCompras">
             <img src={carrito.link} alt=""></img>
         </div>
     )

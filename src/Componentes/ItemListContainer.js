@@ -4,36 +4,27 @@ import ItemList from './ItemList'
 import { toast } from "react-toastify"
 import { useParams } from 'react-router-dom'
 import Loader from './Loader'
-import inventario from '../json/inventario'
+import {db} from "../Firebase"
+import { getDocs, collection, query, where } from 'firebase/firestore'
 const ItemListContainer = (props) => {
     const [loading, setLoading]= useState(true)
     const[productos, setProductos] = useState([])
     const {id} = useParams()
-    var show = (inventario.indumentaria)
-    if (id === "Accesorios"){
-        var show = (inventario.accesorios)
-    } 
-    if(id === "Nfts"){
-        var show = (inventario.nfts)
-    }
     useEffect(()=>{
-    const pedido = new Promise((res,rej)=>{
-            setTimeout(()=>{
-            res(inventario)
-            },3000)
-    })
-    pedido
-    .then((respuesta) => {
-        setProductos(show)
-    })
-    .catch((error) => {
-        toast.error("Error al cargar los productos")
-    })
-    .finally(()=>{
-        setLoading(false)
-    })
+        if (id) {
+            const q = query(collection(db, "Productos"),where("categoria", "==", id))
+            getDocs(q)
+            .then(resp=>{
+                setProductos(resp.docs.map(p=>p.data()))
+            })
+            .catch(err=>{
+                toast.error("Error al cargar los productos")
+            })
+            .finally(()=>{
+                setLoading(false)
+            })
+        }
     }, [id])
-    console.log(productos)
     if(loading){
         return <Loader/>
     }else{

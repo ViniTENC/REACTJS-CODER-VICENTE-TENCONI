@@ -10,7 +10,6 @@ const Main = (props) => {
             <Route path="/" element={<Carrussel/>}></Route>
             <Route path="/categoria/:id" element={<ItemListContainer/>}></Route>
             <Route path="/producto/:id" element={<ItemDetailContainer/>}></Route>
-            <Route path="/iniciarsesion" element={<ItemListContainer/>}></Route>
             <Route path="/carrito" element={<Carrito/>}/>
         </Routes>
     </main>
